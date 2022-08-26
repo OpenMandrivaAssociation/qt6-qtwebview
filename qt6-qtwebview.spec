@@ -23,6 +23,8 @@ BuildRequires:	cmake(Qt6OpenGL)
 BuildRequires:	cmake(Qt6WebEngineCore)
 BuildRequires:	cmake(Qt6WebEngineWidgets)
 BuildRequires:	cmake(Qt6WebEngineQuick)
+BuildRequires:	cmake(Qt6Qml)
+BuildRequires:	cmake(Qt6Quick)
 BuildRequires:	qt6-cmake
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	cmake(OpenGL)
