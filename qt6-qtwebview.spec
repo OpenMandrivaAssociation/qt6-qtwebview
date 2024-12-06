@@ -1,7 +1,7 @@
 #define beta rc2
 
 Name:		qt6-qtwebview
-Version:	6.8.0
+Version:	6.8.1
 Release:	%{?beta:0.%{beta}.}%{?snapshot:0.%{snapshot}.}1
 %if 0%{?snapshot:1}
 # "git archive"-d from "dev" branch of git://code.qt.io/qt/qtbase.git
@@ -42,6 +42,9 @@ Qt %{qtmajor} Web View library
 %global extra_files_WebView \
 %dir %{_qtdir}/plugins/webview \
 %{_qtdir}/plugins/webview/libqtwebview_webengine.so
+
+%global extra_devel_files_WebView \
+%{_qtdir}/sbom/*
 
 %global extra_files_WebViewQuick \
 %{_qtdir}/qml/QtWebView
