@@ -27,6 +27,7 @@ BuildRequires:	cmake(Qt6WebEngineCore)
 BuildRequires:	cmake(Qt6WebEngineWidgets)
 BuildRequires:	cmake(Qt6WebEngineQuick)
 BuildRequires:	cmake(Qt6Qml)
+BuildRequires:	cmake(Qt6QmlAssetDownloader)
 BuildRequires:	cmake(Qt6Quick)
 BuildRequires:	qt6-cmake
 BuildRequires:	pkgconfig(zlib)
