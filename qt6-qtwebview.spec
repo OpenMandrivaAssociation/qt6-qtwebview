@@ -45,6 +45,7 @@ Qt %{qtmajor} Web View library
 %{_qtdir}/plugins/webview/libqtwebview_webengine.so
 
 %global extra_devel_files_WebView \
+%{_qtdir}/lib/cmake/Qt6/FindWebView2.cmake \
 %{_qtdir}/sbom/*
 
 %global extra_files_WebViewQuick \
