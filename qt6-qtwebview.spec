@@ -60,6 +60,7 @@ Example code for the Qt 6 Web View module
 %prep
 %autosetup -p1 -n qtwebview%{!?snapshot:-everywhere-src-%{version}%{?beta:-%{beta}}}
 %cmake -G Ninja \
+	-DQT_BUILD_TESTS:BOOL=OFF \
 	-DCMAKE_INSTALL_PREFIX=%{_qtdir} \
 	-DQT_MKSPECS_DIR:FILEPATH=%{_qtdir}/mkspecs \
 	-DQT_BUILD_EXAMPLES:BOOL=ON \
