@@ -1,7 +1,7 @@
 #define beta rc
 
 Name:		qt6-qtwebview
-Version:	6.11.2
+Version:	6.12.0
 Release:	%{?beta:0.%{beta}.}%{?snapshot:0.%{snapshot}.}1
 %if 0%{?snapshot:1}
 # "git archive"-d from "dev" branch of git://code.qt.io/qt/qtbase.git
@@ -23,9 +23,6 @@ BuildRequires:	cmake(Qt6Qml)
 BuildRequires:	cmake(Qt6OpenGL)
 BuildRequires:	cmake(Qt6Positioning)
 BuildRequires:	cmake(Qt6WebChannel)
-BuildRequires:	cmake(Qt6WebEngineCore)
-BuildRequires:	cmake(Qt6WebEngineWidgets)
-BuildRequires:	cmake(Qt6WebEngineQuick)
 BuildRequires:	cmake(Qt6Qml)
 BuildRequires:	cmake(Qt6QmlMeta)
 BuildRequires:	cmake(Qt6Quick)
@@ -40,10 +37,6 @@ License:	LGPLv3/GPLv3/GPLv2
 
 %description
 Qt %{qtmajor} Web View library
-
-%global extra_files_WebView \
-%dir %{_qtdir}/plugins/webview \
-%{_qtdir}/plugins/webview/libqtwebview_webengine.so
 
 %global extra_devel_files_WebView \
 %{_qtdir}/lib/cmake/Qt6/FindWebView2.cmake \
@@ -70,7 +63,8 @@ Example code for the Qt 6 Web View module
 	-DCMAKE_INSTALL_PREFIX=%{_qtdir} \
 	-DQT_MKSPECS_DIR:FILEPATH=%{_qtdir}/mkspecs \
 	-DQT_BUILD_EXAMPLES:BOOL=ON \
-	-DQT_WILL_INSTALL:BOOL=ON
+	-DQT_WILL_INSTALL:BOOL=ON \
+	-DQT_FEATURE_webview_webengine_plugin:BOOL=OFF
 
 %build
 export LD_LIBRARY_PATH="$(pwd)/build/lib:${LD_LIBRARY_PATH}"
