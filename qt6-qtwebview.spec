@@ -66,12 +66,17 @@ Example code for the Qt 6 Web View module
 
 %prep
 %autosetup -p1 -n qtwebview%{!?snapshot:-everywhere-src-%{version}%{?beta:-%{beta}}}
+# WebEngine is not part of the Qt 6.12 version train. The installed module
+# is 6.140.0, so find_package(Qt6 6.12.1) skips it and the Linux webview
+# plugin is not built. rpm then misses libqtwebview_webengine.so. Accept
+# the installed WebEngine. Its private headers still have to match.
 %cmake -G Ninja \
 	-DQT_BUILD_TESTS:BOOL=OFF \
 	-DCMAKE_INSTALL_PREFIX=%{_qtdir} \
 	-DQT_MKSPECS_DIR:FILEPATH=%{_qtdir}/mkspecs \
 	-DQT_BUILD_EXAMPLES:BOOL=ON \
-	-DQT_WILL_INSTALL:BOOL=ON
+	-DQT_WILL_INSTALL:BOOL=ON \
+	-DQT_NO_PACKAGE_VERSION_CHECK:BOOL=ON
 
 %build
 export LD_LIBRARY_PATH="$(pwd)/build/lib:${LD_LIBRARY_PATH}"
